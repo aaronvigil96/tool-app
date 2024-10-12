@@ -1,0 +1,28 @@
+---
+import Title from "../../components/Title.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+import { turso } from "../../turso";
+
+const { id } = Astro.params;
+
+let error = false; 
+
+const getBrandById:any = async (id:any) => {
+    try{
+        const response = await turso.execute(`SELECT * FROM brands WHERE id = ${id}`);
+        if(response.rows.length === 0) throw new Error('404');
+        return response;
+    }catch(err){
+        error = true;
+    }
+}
+
+const data = await getBrandById(id);
+
+---
+
+<MainLayout title="prueba">
+    {
+        error ? (<script>window.location.href = "/404"</script>) : <Title name={data.rows[0].name}>
+    }
+</MainLayout>

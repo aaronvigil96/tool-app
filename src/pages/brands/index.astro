@@ -11,7 +11,7 @@ const { rows } = await turso.execute(`SELECT * FROM brands`);
     <Title name="marcas"/>
     <div class="mt-4 flex gap-4 flex-wrap justify-center">
         {
-            rows.map((brand:any) => <IconBrand name={brand.name}/>)
+            rows.map((brand:any) => <IconBrand id={brand.id} name={brand.name}/>)
         }
     </div>
 </MainLayout>

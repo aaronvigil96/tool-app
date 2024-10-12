@@ -1,11 +1,12 @@
 ---
 interface Props {
     name: string;
+    id: number;
 }
 
-const {name} = Astro.props;
+const {name, id} = Astro.props;
 ---
 
-<a href=`/brands/${name}` class="max-w-max p-2 h-12 bg-slate-500 relative flex justify-center items-center after:content-[''] after:absolute after:bg-red-900 after:-z-10 after:w-full after:h-full after:left-1 after:right-1 after:top-1 after:bottom-1 after:transition after:duration-300 hover:after:bg-white cursor-pointer group">
+<a href=`/brands/${id}` class="max-w-max p-2 h-12 bg-slate-500 relative flex justify-center items-center after:content-[''] after:absolute after:bg-red-900 after:-z-10 after:w-full after:h-full after:left-1 after:right-1 after:top-1 after:bottom-1 after:transition after:duration-300 hover:after:bg-white cursor-pointer group">
     <p class="text-black font-black text-xl uppercase group-hover:text-white transition duration-300">{name}</p>
 </a>
