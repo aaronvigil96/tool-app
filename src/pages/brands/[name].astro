@@ -1,0 +1,12 @@
+---
+import Title from "../../components/Title.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+
+
+const { name = "Nombre no proporcionado" } = Astro.params;
+---
+
+
+<MainLayout title="prueba">
+    <Title name={name}/>
+</MainLayout>

@@ -1,0 +1,17 @@
+---
+import IconBrand from "../../components/IconBrand.astro";
+import Title from "../../components/Title.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+import { turso } from "../../turso";
+
+const { rows } = await turso.execute(`SELECT * FROM brands`);
+---
+
+<MainLayout title="marcas">
+    <Title name="marcas"/>
+    <div class="mt-4 flex gap-4 flex-wrap justify-center">
+        {
+            rows.map((brand:any) => <IconBrand name={brand.name}/>)
+        }
+    </div>
+</MainLayout>
